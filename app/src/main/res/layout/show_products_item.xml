@@ -20,6 +20,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/show_product_pin_or_unpin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/pin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <View
             android:id="@+id/priority_indicator"
             android:layout_width="16dp"

@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,12 @@ public class ShowProductsAdapter extends RecyclerView.Adapter<ShowProductsAdapte
         holder.rowNumber.setText(mShowProductsModel.get(position).getRowNumber());
         holder.productNumber.setText(mShowProductsModel.get(position).getProductNumber());
 
+        if (mShowProductsModel.get(position).getPriority() == 1) {
+            holder.pinImage.setImageResource(R.drawable.unpin);
+        } else {
+            holder.pinImage.setImageResource(R.drawable.pin);
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +65,24 @@ public class ShowProductsAdapter extends RecyclerView.Adapter<ShowProductsAdapte
             }
         });
 
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.pinImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mShowProductsModel.get(position).getPriority() == 1) {
+                    holder.pinImage.setImageResource(R.drawable.pin);
+                    mRootRef.collection(context.getString(R.string.products_collection))
+                            .document(mShowProductsModel.get(position).getId())
+                            .update("priority", 0);
+                } else {
+                    holder.pinImage.setImageResource(R.drawable.unpin);
+                    mRootRef.collection(context.getString(R.string.products_collection))
+                            .document(mShowProductsModel.get(position).getId())
+                            .update("priority", 1);
+                }
+            }
+        });
+
+        /*holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(context, v);
@@ -94,11 +118,7 @@ public class ShowProductsAdapter extends RecyclerView.Adapter<ShowProductsAdapte
                 });
                 return true;
             }
-        });
-    }
-
-    private void showPopUpMenu(View v) {
-
+        });*/
     }
 
     @Override
@@ -106,15 +126,16 @@ public class ShowProductsAdapter extends RecyclerView.Adapter<ShowProductsAdapte
         return Math.max(mShowProductsModel.size(), 0);
     }
 
-    public class ShowProductsViewHolder extends RecyclerView.ViewHolder {
+    public static class ShowProductsViewHolder extends RecyclerView.ViewHolder {
         TextView productName, shelfNumber, rowNumber, productNumber;
+        ImageView pinImage;
         public ShowProductsViewHolder(@NonNull View itemView) {
             super(itemView);
+            pinImage = itemView.findViewById(R.id.show_product_pin_or_unpin);
             productName = itemView.findViewById(R.id.show_products_name_item);
             shelfNumber = itemView.findViewById(R.id.show_shelf_number_item);
             rowNumber = itemView.findViewById(R.id.show_row_number_item);
             productNumber = itemView.findViewById(R.id.show_product_number_item);
-
         }
     }
 
