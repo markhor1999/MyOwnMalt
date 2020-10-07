@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "884516296231",
+    "firebase_url": "https://myownmalt.firebaseio.com",
+    "project_id": "myownmalt",
+    "storage_bucket": "myownmalt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884516296231:android:7980df5e3c4d645827a002",
+        "android_client_info": {
+          "package_name": "com.preesoft.myownmalt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884516296231-v4hf0th1b4d1c3r3e27tka7rc2434bp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD42qMsSlUT2csuui7hLh4Q_iBIRRlDY1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884516296231-v4hf0th1b4d1c3r3e27tka7rc2434bp0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

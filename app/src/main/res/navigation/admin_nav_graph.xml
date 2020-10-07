@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav_graph"
+    app:startDestination="@id/showProductsFragment">
+
+    <fragment
+        android:id="@+id/showProductsFragment"
+        android:name="com.preesoft.myownmalt.fragments.show.ShowProductsFragment"
+        android:label="Products List"
+        tools:layout="@layout/fragment_show_products" >
+        <action
+            android:id="@+id/action_showProductsFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_showProductsFragment_to_updateProductFragment"
+            app:destination="@id/updateProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.preesoft.myownmalt.fragments.add.AddProductFragment"
+        android:label="Add"
+        tools:layout="@layout/fragment_add_product" >
+        <action
+            android:id="@+id/action_addProductFragment_to_showProductsFragment"
+            app:destination="@id/showProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProductFragment"
+        android:name="com.preesoft.myownmalt.fragments.update.UpdateProductFragment"
+        android:label="Update"
+        tools:layout="@layout/fragment_update_product" >
+        <action
+            android:id="@+id/action_updateProductFragment_to_showProductsFragment"
+            app:destination="@id/showProductsFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.preesoft.myownmalt.fragments.show.model.ShowProductsModel" />
+    </fragment>
+</navigation>

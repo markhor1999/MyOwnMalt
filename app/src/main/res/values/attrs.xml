@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bgColor" format="color"/>
+    <attr name="titleTextColor" format="color"/>
+    <attr name="secondaryTextColor" format="color"/>
+</resources>
